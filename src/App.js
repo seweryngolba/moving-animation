@@ -1,40 +1,77 @@
-// App.js
-import React, { useState } from "react";
-import { useAnimation } from "framer-motion";
 import Landing from "./Components/Landing/Landing";
 import TextArea from "./Components/TextArea/TextArea";
 import Contact from "./Components/Contact/Contact";
+import ScrollSection from "./Components/ScrollSection/ScrollSection";
+import {
+  Animator,
+  ScrollContainer,
+  ScrollPage,
+  batch,
+  Fade,
+  FadeIn,
+  FadeOut,
+  Move,
+  MoveIn,
+  MoveOut,
+  Sticky,
+  StickyIn,
+  StickyOut,
+  Zoom,
+  ZoomIn,
+  ZoomOut,
+} from "react-scroll-motion";
 
 function App() {
-  const textAreaControls = useAnimation();
-  const [boxVisible, setBoxVisible] = useState(false);
-
-  const handleScroll = () => {
-    const yOffset = window.pageYOffset;
-    const triggerOffset = window.innerHeight * 0.8;
-
-    if (yOffset > triggerOffset) {
-      textAreaControls.start({ opacity: 1 });
-      setBoxVisible(true);
-    } else {
-      textAreaControls.start({ opacity: 0 });
-      setBoxVisible(false);
-    }
-  };
-
-  React.useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
-    <>
-      <Landing />
-      <TextArea controls={textAreaControls} />
-      <Contact boxVisible={boxVisible} />
-    </>
+    <ScrollContainer>
+      <ScrollPage page={0}>
+        <Animator animation={FadeIn()} delay={0}>
+          <Landing />
+        </Animator>
+        <Animator animation={FadeOut()} delay={1}>
+          <Landing />
+        </Animator>
+      </ScrollPage>
+      <ScrollPage page={1}>
+        <Animator animation={FadeIn()} delay={1}>
+          <TextArea />
+        </Animator>
+        <Animator animation={FadeOut()} delay={2}>
+          <TextArea />
+        </Animator>
+      </ScrollPage>
+      <ScrollPage page={2}>
+        <Animator animation={FadeIn()} delay={2}>
+          <Contact />
+        </Animator>
+        <Animator animation={FadeOut()} delay={3}>
+          <Contact />
+        </Animator>
+      </ScrollPage>
+      <ScrollPage page={3}>
+        <Animator animation={FadeIn()} delay={3}>
+          <ScrollSection />
+        </Animator>
+        <Animator animation={FadeOut()} delay={4}>
+          <ScrollSection />
+        </Animator>
+      </ScrollPage>
+      <ScrollPage>
+        <Animator animation={MoveIn(0, -100)}>
+          <h2>Contact information</h2>
+        </Animator>
+      </ScrollPage>
+      <ScrollPage>
+        <Animator animation={MoveIn(0, -100)}>
+          <h2>More details</h2>
+        </Animator>
+      </ScrollPage>
+      <ScrollPage>
+        <Animator animation={MoveIn(0, -100)}>
+          <h2>Additional content</h2>
+        </Animator>
+      </ScrollPage>
+    </ScrollContainer>
   );
 }
 
