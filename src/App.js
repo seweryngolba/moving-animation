@@ -57,17 +57,17 @@ function App() {
         </Animator>
       </ScrollPage>
       <ScrollPage>
-        <Animator animation={MoveIn(0, -100)}>
+        <Animator animation={batch(Sticky(), MoveIn(1000, -1000), Fade())}>
           <h2>Contact information</h2>
         </Animator>
       </ScrollPage>
       <ScrollPage>
-        <Animator animation={MoveIn(0, -100)}>
+        <Animator animation={batch(Sticky(), MoveIn(1000, -1000), Fade())}>
           <h2>More details</h2>
         </Animator>
       </ScrollPage>
       <ScrollPage>
-        <Animator animation={MoveIn(0, -100)}>
+        <Animator animation={batch(Sticky(), MoveIn(1000, -1000), Fade())}>
           <h2>Additional content</h2>
         </Animator>
       </ScrollPage>

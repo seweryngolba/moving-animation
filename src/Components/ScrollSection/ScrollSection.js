@@ -3,8 +3,9 @@ import {
   Animator,
   ScrollContainer,
   ScrollPage,
+  batch,
   MoveIn,
-  MoveOut,
+  Sticky,
 } from "react-scroll-motion";
 
 import "./ScrollSection.css";
@@ -14,17 +15,17 @@ const ScrollSection = () => {
     <div className="scrollCont">
       <ScrollContainer className="scrollCont">
         <ScrollPage>
-          <Animator animation={MoveIn(0, -100)}>
+          <Animator animation={batch(Sticky(), MoveIn(1000, -1000))}>
             <h2>Contact information</h2>
           </Animator>
         </ScrollPage>
         <ScrollPage>
-          <Animator animation={MoveIn(0, -100)}>
+          <Animator animation={batch(Sticky(), MoveIn(1000, -1000))}>
             <h2>More details</h2>
           </Animator>
         </ScrollPage>
         <ScrollPage>
-          <Animator animation={MoveIn(0, -100)}>
+          <Animator animation={batch(Sticky(), MoveIn(1000, -1000))}>
             <h2>Additional content</h2>
           </Animator>
         </ScrollPage>
