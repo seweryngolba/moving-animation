@@ -8,6 +8,7 @@ import {
   ScrollPage,
   batch,
   Sticky,
+  Move,
 } from "react-scroll-motion";
 import Landing from "./Components/Landing/Landing";
 import TextArea from "./Components/TextArea/TextArea";
@@ -33,12 +34,14 @@ function App() {
         </Animator>
       </ScrollPage>
       <ScrollPage>
-        <Animator animation={batch(Sticky(), Fade())}>
-          <div className="landAnime"></div>
-        </Animator>
-        <Animator animation={batch(Sticky(), Fade())}>
-          <div className="boxy"></div>
-        </Animator>
+        <div className="jumpCont">
+          <div className="landAnime">
+            <Animator animation={batch(Sticky(), Move(0, 1000))}></Animator>
+          </div>
+          <div className="boxy">
+            <Animator animation={batch(Sticky(), Move(1000, 0))}></Animator>
+          </div>
+        </div>
       </ScrollPage>
     </ScrollContainer>
   );
