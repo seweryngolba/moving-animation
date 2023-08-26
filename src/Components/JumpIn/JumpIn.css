@@ -1,0 +1,17 @@
+.jumpCont {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.landAnime {
+  width: 320px;
+  height: 520px;
+  background: peru;
+}
+
+.boxy {
+  width: 420px;
+  height: 420px;
+  background: lightskyblue;
+}

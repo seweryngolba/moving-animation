@@ -12,8 +12,8 @@ import {
 import Landing from "./Components/Landing/Landing";
 import TextArea from "./Components/TextArea/TextArea";
 import Contact from "./Components/Contact/Contact";
-import ScrollSectionContent from "./Components/ScrollSection/ScrollSection"; // Import nowego komponentu
 import Floating from "./Components/Floating/Floating";
+import JumpIn from "./Components/JumpIn/JumpIn";
 
 function App() {
   return (
@@ -32,7 +32,14 @@ function App() {
           <Floating />
         </Animator>
       </ScrollPage>
-      <ScrollSectionContent />
+      <ScrollPage>
+        <Animator animation={batch(Sticky(), Fade())}>
+          <div className="landAnime"></div>
+        </Animator>
+        <Animator animation={batch(Sticky(), Fade())}>
+          <div className="boxy"></div>
+        </Animator>
+      </ScrollPage>
     </ScrollContainer>
   );
 }
